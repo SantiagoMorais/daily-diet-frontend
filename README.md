@@ -19,7 +19,7 @@
 
 - [zod](https://zod.dev/): Biblioteca de validação de esquemas e dados, garantindo a segurança dos dados.
 
-- [axios]()
+- [Axios](https://axios-http.com/ptbr/): Axios é um cliente HTTP simples baseado em `promisses` para o navegador e para o node.js. Axios fornece uma biblioteca simples de usar em um pacote pequeno com uma grande interface.
 
 ## Dependências de Desenvolvimento
 
@@ -38,8 +38,6 @@
 - [Tailwind Variants](https://www.tailwind-variants.org): Biblioteca que ajuda a gerenciar e aplicar variantes de estilos no Tailwind CSS, permitindo criar estilos condicionais.
 
 - [TanStack Query](https://tanstack.com/query/latest): Gerencia e sincroniza dados remotos em aplicações React. Facilita a busca, cache e atualização de dados. Ideal para otimizar requisições assíncronas. Trabalha em conjunto com bibliotecas focadas em requisições HTTP como axios ou fetch de dados.
-
-- [Axios](https://axios-http.com/ptbr/): Axios é um cliente HTTP simples baseado em `promisses` para o navegador e para o node.js. Axios fornece uma biblioteca simples de usar em um pacote pequeno com uma grande interface.
 
 - [React Hook Form](https://react-hook-form.com): Biblioteca para gerenciamento de formulários em React, focada em validação e envio de dados.
 
