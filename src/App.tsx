@@ -1,9 +1,7 @@
-import "@vitejs/plugin-react";
-
 export const App = () => {
   return (
-    <>
-      <p>Hello World</p>
-    </>
+    <div className="h-screen w-full bg-zinc-900">
+      <p className="text-lg text-white">Hello World</p>
+    </div>
   );
 };
