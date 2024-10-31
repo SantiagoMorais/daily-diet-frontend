@@ -10,8 +10,9 @@ export default {
         quaternary: "#1C1427",
       },
       fontFamily: {
-        
-      }
+        basic: "'Roboto', sans-serif",
+        title: "'Quintessential', serif",
+      },
     },
   },
   plugins: [],
