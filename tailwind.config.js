@@ -11,8 +11,11 @@ export default {
       },
       fontFamily: {
         basic: "'Roboto', sans-serif",
-        title: "'Quintessential', serif",
+        title: "'DM Serif Display', serif",
       },
+      boxShadow: {
+        allAround: "0 0 10px"
+      }
     },
   },
   plugins: [],

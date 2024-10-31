@@ -7,5 +7,5 @@ html {
 }
 
 body {
-    @apply text-sm bg-bg font-basic text-text px-10 py-6
+    @apply text-sm bg-gradient-to-r from-bg to-black font-basic text-text font-medium
 }

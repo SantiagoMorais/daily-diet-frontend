@@ -21,6 +21,8 @@
 
 - [Axios](https://axios-http.com/ptbr/): Axios é um cliente HTTP simples baseado em `promisses` para o navegador e para o node.js. Axios fornece uma biblioteca simples de usar em um pacote pequeno com uma grande interface.
 
+- [FontAwesome](https://fontawesome.com): Biblioteca responsável pela renderização de ícones.
+
 ## Dependências de Desenvolvimento
 
 - [ESLint](https://eslint.org/): Ferramenta para análise de código, responsável por identificar erros e inconsistências, como variáveis não utilizadas ou não declaradas.
