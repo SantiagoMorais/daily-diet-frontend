@@ -26,6 +26,9 @@ export default {
       boxShadow: {
         allAround: "0 0 10px",
       },
+      backgroundImage: {
+        radialGradient: "radial-gradient(circle, #810000 0%, rgba(0,0,0,0) 70%)"
+      }
     },
   },
   plugins: [],

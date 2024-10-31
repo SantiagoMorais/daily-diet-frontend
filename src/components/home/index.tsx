@@ -9,16 +9,17 @@ import { StarIcon } from "@assets/icons/starIcon";
 
 export const Home = () => {
   return (
-    <div className="w-full h-full flex flex-col gap-6 md:flex-row md:justify-center md:max-w-screen-xl md:items-center">
-      <div className="md:order-2 md:flex md:items-center md:justify-center">
+    <div className="flex h-full w-full flex-col gap-6 md:max-w-screen-xl md:flex-row md:items-center md:justify-center">
+      <div className="relative md:order-2 md:flex md:items-center md:justify-center">
         <img
           src={heroImage}
           alt="Hero image"
-          className="w-full object-cover md:h-auto md:w-[30dvw] md:max-w-[30rem] md:min-w-[20rem] -rotate-6 animate-customBounce"
+          className="animate-customBounce relative z-10 h-auto w-full -rotate-12 object-cover md:h-auto md:w-[30dvw] md:min-w-[20rem] md:max-w-[30rem]"
         />
+        <span className="animate-customBounce bg-radialGradient absolute bottom-0 left-0 right-0 top-[20dvw] z-0 m-auto h-[90dvw] w-full rounded-full opacity-80 md:bottom-auto md:left-auto md:right-auto md:top-10 md:h-[42vw] md:max-h-[40rem] md:min-h-[25rem] md:w-[42vw] md:min-w-[25rem] md:max-w-[40rem]"></span>
       </div>
       <div className="flex flex-col gap-10 md:w-1/2">
-        <h2 className="font-title text-5xl lg:text-7xl sm:text-6gxl">
+        <h2 className="sm:text-6gxl font-title text-5xl lg:text-7xl">
           Register your daily meals and stay focused on{" "}
           <span className="text-primary">healthy eating</span>!
         </h2>
