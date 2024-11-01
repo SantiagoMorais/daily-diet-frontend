@@ -1,6 +1,6 @@
 import { afterHover } from "@styles/index";
 import { Link } from "react-router-dom";
-import { navbarLinks } from "utils/variables";
+import { navbarLinks } from "utils/arrays";
 
 export const NavbarLinks = () => {
   return (

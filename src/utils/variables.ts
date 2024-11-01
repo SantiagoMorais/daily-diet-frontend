@@ -1,58 +1,33 @@
-import { createId } from "@paralleldrive/cuid2";
-import cardImage1 from "@assets/imgs/meal-1.png";
-import cardImage2 from "@assets/imgs/meal-2.png";
-import cardImage3 from "@assets/imgs/meal-3.png";
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import {
-  faCarrot,
-  faHandFist,
-  faUtensils,
-} from "@fortawesome/free-solid-svg-icons";
+export const linkedinCreator =
+  "https://www.linkedin.com/in/felipe-santiago-morais/";
 
-interface INavbarLinks {
-  name: string;
-  link: string;
-  id: string;
-  logged?: boolean;
+function formatMessageForWeb(message: string): string {
+  return encodeURIComponent(message);
 }
 
-export const navbarLinks: INavbarLinks[] = [
-  { id: createId(), link: "/", name: "Home" },
-  { id: createId(), link: "/about-us", name: "About Us" },
-  { id: createId(), link: "/profile", name: "Profile", logged: true },
-];
+function greetingsHour() {
+  const date = new Date();
+  const hour = date.getHours();
+  const inTheMorning = hour >= 6 && hour < 12;
+  const inTheAfternoon = hour >= 12 && hour < 18;
+  const inTheNight = hour >= 18 && hour < 24;
 
-export interface IInfoCards {
-  title: string;
-  description: string;
-  id: string;
-  img: string;
-  icon: IconDefinition;
+  switch (true) {
+    case inTheMorning:
+      return "Bom dia";
+    case inTheAfternoon:
+      return "Boa tarde";
+    case inTheNight:
+      return "Boa noite";
+    default:
+      return "Olá";
+  }
 }
 
-export const infoCards: IInfoCards[] = [
-  {
-    id: createId(),
-    title: "Registry your meals",
-    img: cardImage1,
-    description:
-      "Before to enjoy your meal, registry it here and set its title, description and if it is in your diet objectives 🥗, or not 🍔...",
-    icon: faCarrot,
-  },
-  {
-    id: createId(),
-    title: "Verify the summary",
-    img: cardImage2,
-    description:
-      "Verify statistics about how many meals have you registered, how many is in your diet and your best diet sequency. 🍴",
-    icon: faUtensils,
-  },
-  {
-    id: createId(),
-    title: "Start right now!",
-    img: cardImage3,
-    description:
-      "Every here is to help you to keep on focus, but relax, all we need to break rules sometimes and eat your favorite snack. Start right now and enjoy! 😄",
-    icon: faHandFist,
-  },
-];
+export const phoneNumber: number = 5531996951033;
+const defaultWhatsappMessage: string = `${greetingsHour()}, Felipe! Encontrei o seu contato em um dos seus sites e gostaria de conversar`;
+export const whatsAppLink: string = `https://api.whatsApp.com/send?phone=${phoneNumber}&text=${formatMessageForWeb(defaultWhatsappMessage)}`;
+
+export const githubLink = "https://github.com/SantiagoMorais";
+export const linkedinLink = "https://linkedin.com/in/felipe-santiago-morais";
+export const emailLink = "mailto:contatofelipesantiago@gmail.com";

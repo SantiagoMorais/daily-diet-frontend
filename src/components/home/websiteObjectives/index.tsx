@@ -1,4 +1,4 @@
-import { infoCards } from "utils/variables";
+import { infoCards } from "utils/arrays";
 import { Card } from "./card";
 
 export const WebsiteObjectives = () => {

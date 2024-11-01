@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IInfoCards } from "utils/variables";
+import { IInfoCards } from "utils/arrays";
 
 interface ICardProps {
   card: IInfoCards;
