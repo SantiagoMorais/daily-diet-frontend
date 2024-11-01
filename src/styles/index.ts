@@ -5,8 +5,9 @@ export const button = tv({
   variants: {
     color: {
       primary:
-        "text-bg bg-white hover:text-primary hover:scale-110 hover:opacity-80",
-      secondary: "text-white bg-primary hover:scale-110 hover:opacity-80",
+        "text-bg bg-gradient-to-br from-white to-zinc-400 hover:text-primary hover:scale-110 hover:opacity-80",
+      secondary:
+        "text-white bg-gradient-to-br from-primary to-secondary hover:scale-110 hover:opacity-80",
     },
   },
 });

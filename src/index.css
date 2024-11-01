@@ -7,5 +7,5 @@ html {
 }
 
 body {
-    @apply text-sm bg-gradient-to-r from-bg to-black font-basic text-text font-medium
+    @apply text-sm bg-gradient-to-br from-zinc-900 via-zinc-800 to-black font-basic text-text font-medium
 }
