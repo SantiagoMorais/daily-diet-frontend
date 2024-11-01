@@ -9,7 +9,7 @@ export const NavbarLinks = () => {
         <Link
           key={link.id}
           to={link.link}
-          className="group relative overflow-x-hidden rounded-full px-4 md:px-6 py-2"
+          className="group relative overflow-x-hidden rounded-full px-4 py-2 md:px-6"
         >
           <li className="relative z-10 text-nowrap">{link.name}</li>
           <span className={afterHover()}></span>

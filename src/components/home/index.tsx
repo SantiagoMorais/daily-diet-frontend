@@ -1,15 +1,13 @@
-import { HeroImage } from "./heroImage";
-import { HeroContent } from "./heroContent";
 import { NavBar } from "@components/navBar";
+import { Hero } from "./hero";
+import { WebsiteObjectives } from "./websiteObjectives";
 
 export const Home = () => {
   return (
-    <div className="flex flex-col justify-center md:max-h-full md:h-full">
+    <div className="flex flex-col justify-center md:h-full md:max-h-full">
       <NavBar />
-      <div className="flex h-full w-full flex-col gap-6 md:max-w-screen-xl md:flex-row md:items-center md:justify-center">
-        <HeroImage />
-        <HeroContent />
-      </div>
+      <Hero />
+      <WebsiteObjectives />
     </div>
   );
 };

@@ -25,6 +25,7 @@ export default {
       },
       boxShadow: {
         allAround: "0 0 10px",
+        customShadowInner: "inset 0 0 20px"
       },
       backgroundImage: {
         radialGradient: "radial-gradient(circle, #810000 0%, rgba(0,0,0,0) 70%)"
