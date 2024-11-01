@@ -22,7 +22,7 @@ export const navbarLinks: INavbarLinks[] = [
   { id: createId(), link: "/profile", name: "Profile", logged: true },
 ];
 
-interface IInfoCards {
+export interface IInfoCards {
   title: string;
   description: string;
   id: string;
