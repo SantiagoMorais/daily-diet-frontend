@@ -25,7 +25,7 @@ interface INavbarLinks {
 
 export const navbarLinks: INavbarLinks[] = [
   { id: createId(), link: "/", name: "Home" },
-  { id: createId(), link: "/about-us", name: "About Us" },
+  { id: createId(), link: "/meals", name: "Registry Meals" },
   { id: createId(), link: "/profile", name: "Profile", logged: true },
 ];
 

@@ -1,6 +1,7 @@
 import { button } from "@styles/index";
 import { NavbarLinks } from "./navbarLinks";
 import { Logo } from "./logo";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   return (
@@ -8,8 +9,8 @@ export const NavBar = () => {
       <Logo />
       <NavbarLinks />
       <div className="flex gap-4">
-        <button className={button({ color: "secondary" })}>Sign in</button>
-        <button className={button({ color: "primary" })}>Sign up</button>
+        <Link to={"/sign-in"} className={button({ color: "secondary" })}>Sign in</Link>
+        <Link to={"/sign-up"} className={button({ color: "primary" })}>Sign up</Link>
       </div>
     </div>
   );
