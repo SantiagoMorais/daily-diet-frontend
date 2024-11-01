@@ -1,5 +1,6 @@
 import { button } from "@styles/index";
 import { Link } from "react-router-dom";
+import { SignUpForm } from "./signUpForm";
 
 export const SignUp = () => {
   return (
@@ -19,6 +20,8 @@ export const SignUp = () => {
             Sign in
           </Link>
         </div>
+
+        <SignUpForm />
       </div>
     </div>
   );
