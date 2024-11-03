@@ -28,7 +28,8 @@
       "@components/*": ["components/*"],
       "@functions/*": ["functions/*"],
       "@types/*": ["types/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@env/*": ["env/*"]
     }
   },
   "include": ["src"]
