@@ -15,8 +15,6 @@
 
 ## Dependências
 
-- [dotenv](https://www.npmjs.com/package/dotenv): Dotenv carrega variáveis ambiente de um arquivo .env ao `process.env` em aplicações Node.js.
-
 - [zod](https://zod.dev/): Biblioteca de validação de esquemas e dados, garantindo a segurança dos dados.
 
 - [Axios](https://axios-http.com/ptbr/): Axios é um cliente HTTP simples baseado em `promisses` para o navegador e para o node.js. Axios fornece uma biblioteca simples de usar em um pacote pequeno com uma grande interface.
