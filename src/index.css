@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 html {
-    @apply font-normal 
+  @apply font-normal;
 }
 
 body {
-    @apply text-sm bg-gradient-to-br from-zinc-900 via-zinc-800 to-black font-basic text-text font-medium
+  @apply bg-gradient-to-br from-zinc-900 via-zinc-800 to-black font-basic text-sm font-medium text-text;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px theme("colors.bg") inset;
+  -webkit-text-fill-color: white;
 }
