@@ -1,30 +1,67 @@
 import { env } from "@env/index";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+import { z } from "zod";
 
-interface IHandleRegisterNewUser {
-  name: string;
-  email: string;
-  password: string;
-  repeatPassword: string;
+export interface IResponse {
+  message: string;
+  status: number;
+  type: "success" | "error";
 }
 
-export const handleRegisterNewUser = ({
+export const registerNewUserSchema = z
+  .object({
+    name: z.string().min(2, "The name must have at least 2 letters."),
+    email: z.string().email(),
+    password: z
+      .string()
+      .min(6, "Password must contain at least 6 characters")
+      .max(15, "Password must contain at most 15 characters"),
+    repeatPassword: z
+      .string()
+      .min(6, "Password must contain at least 6 characters")
+      .max(15, "Password must contain at most 15 characters"),
+  })
+  .refine((data) => data.password === data.repeatPassword, {
+    message: "The passwords not match",
+    path: ["repeatPassword"],
+  })
+  .refine((data) => data.name.includes(" "), {
+    message: "Please, fill in the name field at least your name and last name.",
+    path: ["name"],
+  });
+
+export type IRegisterNewUser = z.infer<typeof registerNewUserSchema>;
+
+export const handleRegisterNewUser = async ({
   name,
   email,
   password,
   repeatPassword,
-}: IHandleRegisterNewUser) => {
-  axios
-    .post<IHandleRegisterNewUser>(`${env.VITE_DATABASE_URL}/users`, {
+}: IRegisterNewUser) => {
+  let response: IResponse | undefined = undefined;
+
+  await axios
+    .post<IRegisterNewUser>(`${env.VITE_DATABASE_URL}/users`, {
       name,
       email,
       password,
       repeatPassword,
     })
     .then((res) => {
-      console.log(res.status);
+      response = {
+        message: "User registered successfully.",
+        status: res.status,
+        type: "success",
+      };
     })
-    .catch((err) => {
-      return err
+    .catch((err: AxiosError) => {
+      const errorResponse = JSON.parse(err.request.response);
+      response = {
+        message: errorResponse.message,
+        status: err.status ? err.status : 500,
+        type: "error",
+      };
     });
+
+  return { response };
 };

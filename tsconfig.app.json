@@ -27,7 +27,7 @@
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@functions/*": ["functions/*"],
-      "@types/*": ["types/*"],
+      "@interfaces/*": ["interfaces/*"],
       "@styles/*": ["styles/*"],
       "@env/*": ["env/*"]
     }
