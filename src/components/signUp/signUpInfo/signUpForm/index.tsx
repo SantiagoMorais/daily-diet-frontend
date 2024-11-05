@@ -34,8 +34,10 @@ export const SignUpForm = () => {
 
     if (registerNewUser.response?.type === "error") {
       alert(registerNewUser.response.message);
+      return;
     }
 
+    alert(registerNewUser.response?.message)
     return redirect("/");
   };
 
