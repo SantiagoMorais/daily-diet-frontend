@@ -1,11 +1,13 @@
 import { button } from "@styles/index";
 import { Link } from "react-router-dom";
 import { SignUpForm } from "./signUpForm";
+import { RetunrButton } from "./returnButton";
 
 export const SignUp = () => {
   return (
     <div className="flex h-full w-screen max-w-screen-2xl items-center justify-center overflow-hidden px-10">
-      <div className="flex w-full min-w-64 flex-col gap-5 rounded-xl bg-white p-5 text-bg">
+      <div className="relative flex w-full min-w-64 flex-col gap-5 rounded-xl bg-white p-5 text-bg">
+        <RetunrButton />
         <h2 className="text-2xl">
           Sign{" "}
           <span className="rounded-xl bg-bg px-2 py-1 text-primary">up</span>
