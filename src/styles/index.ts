@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const button = tv({
-  base: "text-lg w-fit px-6 py-3 rounded-full duration-300 text-nowrap",
+  base: "text-lg w-fit px-6 py-3 rounded-full duration-300 text-nowrap h-fit",
   variants: {
     color: {
       primary:
