@@ -9,8 +9,8 @@ export const NavBar = () => {
       <Logo />
       <NavbarLinks />
       <div className="flex gap-4">
-        <Link to={"/sign-in"} className={button({ color: "secondary" })}>Sign in</Link>
-        <Link to={"/sign-up"} className={button({ color: "primary" })}>Sign up</Link>
+        <Link to={"/sign-in"} className={button({ color: "secondary", format: "rounded" })}>Sign in</Link>
+        <Link to={"/sign-up"} className={button({ color: "primary", format: "rounded" })}>Sign up</Link>
       </div>
     </div>
   );

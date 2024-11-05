@@ -37,7 +37,7 @@ export const SignUpForm = () => {
       return;
     }
 
-    alert(registerNewUser.response?.message)
+    alert(registerNewUser.response?.message);
     return redirect("/");
   };
 
@@ -47,84 +47,92 @@ export const SignUpForm = () => {
 
   return (
     <form
-      className="flex flex-col gap-2"
+      className="flex h-full flex-col justify-between gap-2"
       onSubmit={handleSubmit(handleRegisterUser)}
     >
-      <label htmlFor="name">
-        Name:
-        <input
-          type="text"
-          id="name"
-          placeholder="Name"
-          className="w-full rounded-lg bg-bg px-2 py-1 text-white"
-          {...register("name")}
-        />
-        {errors.name && <p className={errorMessage()}>{errors.name.message}</p>}
-      </label>
-
-      <label htmlFor="email">
-        E-mail:
-        <input
-          type="email"
-          id="email"
-          placeholder="E-mail"
-          className="w-full rounded-lg bg-bg px-2 py-1 text-white"
-          {...register("email")}
-        />
-        {errors.email && (
-          <p className={errorMessage()}>{errors.email.message}</p>
-        )}
-      </label>
-
-      <label htmlFor="password">
-        Password:
-        <div className="flex">
+      <div>
+        <label htmlFor="name">
+          Name:
           <input
-            type={showPassword ? "text" : "password"}
-            id="password"
-            placeholder="Password"
-            className="w-full rounded-lg rounded-r-none bg-bg px-2 py-1 text-white"
-            {...register("password")}
+            type="text"
+            id="name"
+            placeholder="Name"
+            className="w-full rounded-lg bg-bg px-2 py-1 text-white"
+            {...register("name")}
           />
-          <button
-            type="button"
-            className="rounded-r-lg bg-bg px-2 text-white"
-            onClick={() => togglePassword()}
-          >
-            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-          </button>
-        </div>
-        {errors.password && (
-          <p className={errorMessage()}>{errors.password.message}</p>
-        )}
-      </label>
+          {errors.name && (
+            <p className={errorMessage()}>{errors.name.message}</p>
+          )}
+        </label>
 
-      <label htmlFor="repeatPassword">
-        Repeat Password:
-        <div className="flex">
+        <label htmlFor="email">
+          E-mail:
           <input
-            type={showPassword ? "text" : "password"}
-            id="repeatPassword"
-            placeholder="Repeat Password"
-            className="w-full rounded-lg rounded-r-none bg-bg px-2 py-1 text-white"
-            {...register("repeatPassword")}
+            type="email"
+            id="email"
+            placeholder="E-mail"
+            className="w-full rounded-lg bg-bg px-2 py-1 text-white"
+            {...register("email")}
           />
-          <button
-            type="button"
-            className="rounded-r-lg bg-bg px-2 text-white"
-            onClick={() => togglePassword()}
-          >
-            <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-          </button>
-        </div>
-        {errors.repeatPassword && (
-          <p className={errorMessage()}>{errors.repeatPassword.message}</p>
-        )}
-      </label>
+          {errors.email && (
+            <p className={errorMessage()}>{errors.email.message}</p>
+          )}
+        </label>
+
+        <label htmlFor="password">
+          Password:
+          <div className="flex">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              placeholder="Password"
+              className="w-full rounded-lg rounded-r-none bg-bg px-2 py-1 text-white"
+              {...register("password")}
+            />
+            <button
+              type="button"
+              className="rounded-r-lg bg-bg px-2 text-white"
+              onClick={() => togglePassword()}
+            >
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+            </button>
+          </div>
+          {errors.password && (
+            <p className={errorMessage()}>{errors.password.message}</p>
+          )}
+        </label>
+
+        <label htmlFor="repeatPassword">
+          Repeat Password:
+          <div className="flex">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="repeatPassword"
+              placeholder="Repeat Password"
+              className="w-full rounded-lg rounded-r-none bg-bg px-2 py-1 text-white"
+              {...register("repeatPassword")}
+            />
+            <button
+              type="button"
+              className="rounded-r-lg bg-bg px-2 text-white"
+              onClick={() => togglePassword()}
+            >
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+            </button>
+          </div>
+          {errors.repeatPassword && (
+            <p className={errorMessage()}>{errors.repeatPassword.message}</p>
+          )}
+        </label>
+      </div>
 
       <button
         type="submit"
-        className={button({ color: "secondary", className: "mt-4" })}
+        className={button({
+          color: "secondary",
+          format: "full",
+          className: "rounded-lg",
+        })}
       >
         Register
       </button>

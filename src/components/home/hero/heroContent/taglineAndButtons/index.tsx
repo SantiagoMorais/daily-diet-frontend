@@ -8,8 +8,8 @@ export const TaglineAndButtons = () => {
         <span className="text-primary">healthy eating</span>!
       </h2>
       <div className="flex flex-wrap gap-4">
-        <button className={button({ color: "secondary" })}>Register now</button>
-        <button className={button({ color: "primary", className: "px-12" })}>
+        <button className={button({ color: "secondary", format: "rounded" })}>Register now</button>
+        <button className={button({ color: "primary", format: "rounded", className: "px-12" })}>
           About us
         </button>
       </div>

@@ -1,13 +1,21 @@
 import { tv } from "tailwind-variants";
 
 export const button = tv({
-  base: "text-lg w-fit px-6 py-3 rounded-full duration-300 text-nowrap h-fit",
+  base: "text-lg w-fit px-6 py-3 duration-300 text-nowrap h-fit",
   variants: {
     color: {
       primary:
-        "text-bg bg-gradient-to-br from-white to-zinc-400 hover:text-primary hover:scale-110 hover:opacity-80",
-      secondary:
-        "text-white bg-gradient-to-br from-primary to-secondary hover:scale-110 hover:opacity-80",
+        "text-bg bg-gradient-to-br from-white to-zinc-400 hover:text-primary ",
+      secondary: "text-white bg-gradient-to-br from-primary to-secondary",
+    },
+    format: {
+      rounded: "rounded-full",
+      full: "w-full",
+      common: "rounded-lg"
+    },
+    hoverEffects: {
+      scale: "hover:scale-110",
+      opacity: "hover:opacity-80",
     },
   },
 });

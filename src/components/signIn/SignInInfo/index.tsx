@@ -14,7 +14,7 @@ export const SignInInfo = () => {
           <br />
           Please sign up:
         </p>
-        <Link to={"/sign-up"} className={button({ color: "secondary" })}>
+        <Link to={"/sign-up"} className={button({ color: "secondary", format: "rounded" })}>
           Sign up
         </Link>
       </div>

@@ -2,7 +2,7 @@ import signUpImage from "@assets/imgs/sign-up-image.webp";
 
 export const SignUpImage = () => {
   return (
-    <div className="relative hidden flex-1 overflow-hidden rounded-l-xl border-2 border-r-0 bg-black sm:block">
+    <div className="relative hidden flex-1 overflow-hidden rounded-l-xl border-2 border-r-0 bg-black sm:block min-h-[35rem]">
       <img
         src={signUpImage}
         alt="Signup image"
