@@ -29,7 +29,8 @@
       "@functions/*": ["functions/*"],
       "@interfaces/*": ["interfaces/*"],
       "@styles/*": ["styles/*"],
-      "@env/*": ["env/*"]
+      "@env/*": ["env/*"],
+      "@contexts/*": ["contexts/*"]
     }
   },
   "include": ["src"]
