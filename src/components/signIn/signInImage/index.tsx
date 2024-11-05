@@ -6,7 +6,7 @@ export const SigninImage = () => {
       <img
         src={signInImage}
         alt="Sing in image"
-        className="absolute opacity-40 bottom-0 top-0 m-auto w-full min-h-full object-cover"
+        className="absolute opacity-40 bottom-0 top-0 m-auto w-full min-h-full object-cover -scale-x-100"
       />
       <p className="bg-red auto absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center font-title text-6xl font-semibold">
         <span className="text-primary">Sign in</span> now to enjoy our platform!
