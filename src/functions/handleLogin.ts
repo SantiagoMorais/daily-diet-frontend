@@ -19,9 +19,7 @@ export const handleLogin = async (data: ILogin) => {
   let response: IResponse | undefined = undefined;
 
   await axios
-    .post<ILogin>(`${env.VITE_DATABASE_URL}/login`, data, {
-      withCredentials: true,
-    })
+    .post<ILogin>(`${env.VITE_DATABASE_URL}/login`, data)
     .then((res) => {
       response = {
         message: "Successfully login.",
