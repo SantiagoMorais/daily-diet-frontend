@@ -3,17 +3,31 @@ import axios, { AxiosError } from "axios";
 
 export interface ICheckAuth {
   data: string | null;
-  status: number;
+  status: number | undefined;
   message: string;
 }
 
-export const checkAuth = async () => {
+export const checkAuth = async (): Promise<ICheckAuth> => {
+  let response: ICheckAuth | undefined = undefined;
+
   await axios
     .get(env.VITE_DATABASE_URL + "/auth/status")
     .then((res) => {
-      return { data: res.data, status: res.status, message: res.statusText };
+      response = {
+        data: res.data,
+        status: res.status,
+        message: res.statusText,
+      };
     })
     .catch((err: AxiosError) => {
-      return { data: null, status: err.status, message: err.message };
+      response = {
+        data: null,
+        status: err.status,
+        message: err.message,
+      };
     });
+
+  if (!response)
+    return { data: null, status: 500, message: "Internal server error" };
+  return response;
 };
