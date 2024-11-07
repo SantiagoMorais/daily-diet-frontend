@@ -13,18 +13,29 @@ export const AuthContext = createContext<IAuthContext>({
 });
 
 export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
+  const localAuthData = localStorage.getItem("dailyDietAuthentication");
+  const initialAuthState = localAuthData ? JSON.parse(localAuthData) : false;
+
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+  const updateLocalStorage = (value: boolean) => {
+    localStorage.setItem("dailyDietAuthentication", JSON.stringify(value));
+  };
 
   useEffect(() => {
     const checkAuth = async () => {
-      await axios
-        .get(env.VITE_DATABASE_URL + "/auth/status", { withCredentials: true })
-        .then(() => {
-          setIsAuthenticated(true);
-        })
-        .catch(() => {
-          setIsAuthenticated(false);
+      try {
+        await axios.get(env.VITE_DATABASE_URL + "/auth/status", {
+          withCredentials: true,
         });
+        setIsAuthenticated(true);
+        updateLocalStorage(true);
+      } catch {
+        setIsAuthenticated(false);
+        updateLocalStorage(false);
+        if (initialAuthState)
+          alert("Your session expired.\nPlease, login again.");
+      }
     };
 
     checkAuth();

@@ -15,6 +15,7 @@ export const handleLogout = async ({
   await axios
     .post(env.VITE_DATABASE_URL + "/logout", {}, { withCredentials: true })
     .then(() => {
+      localStorage.setItem("dailyDietAuthentication", JSON.stringify(false));
       setIsLoading(false);
       setOpenWindow(false);
       setIsAuthenticated(false);

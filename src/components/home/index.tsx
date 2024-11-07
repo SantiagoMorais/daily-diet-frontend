@@ -5,7 +5,7 @@ import { Footer } from "@components/footer";
 
 export const Home = () => {
   return (
-    <div className="flex flex-col justify-center min-h-full gap-10">
+    <div className="flex min-h-full flex-col justify-center gap-10">
       <NavBar />
       <Hero />
       <WebsiteObjectives />
