@@ -14,3 +14,7 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px theme("colors.bg") inset;
   -webkit-text-fill-color: white;
 }
+
+.ReactCollapse--collapse {
+  transition: height .5s ease, padding .5s ease;
+}

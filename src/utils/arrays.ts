@@ -88,3 +88,8 @@ export const socialMediaLinks: ISocialMedia[] = [
   },
   { icon: faWhatsapp, link: whatsAppLink, title: "Whatsapp" },
 ];
+
+export const welcomeBannerButtons: { title: string; link: string; id: string }[] = [
+  { title: "Register Meals", link: "/meals", id: createId() },
+  { title: "Profile", link: "/profile", id: createId() },
+];
