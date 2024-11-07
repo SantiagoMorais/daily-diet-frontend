@@ -27,3 +27,7 @@ export const avatar = tv({
 export const afterHover = tv({
   base: "absolute left-0 top-0 z-0 h-full w-full origin-right scale-x-0 bg-secondary transition-transform duration-500 group-hover:origin-left group-hover:scale-x-100",
 });
+
+export const errorMessage = tv({
+  base: "text-sm text-primary pt-1",
+});
