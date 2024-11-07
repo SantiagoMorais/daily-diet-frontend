@@ -21,6 +21,9 @@
 
 - [FontAwesome](https://fontawesome.com): Biblioteca responsável pela renderização de ícones.
 
+- [TanStack Query](https://tanstack.com/query/latest): Gerenci e sincroniza dados remotos em aplicações React. Facilita a busca, cache e atualização de dados. Ideal para otimizar requisições assíncronas.
+
+
 ## Dependências de Desenvolvimento
 
 - [ESLint](https://eslint.org/): Ferramenta para análise de código, responsável por identificar erros e inconsistências, como variáveis não utilizadas ou não declaradas.

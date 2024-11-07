@@ -1,7 +1,7 @@
 import { env } from "@env/index";
 import axios from "axios";
 
-interface ISummary {
+export interface ISummary {
   summary: {
     mealsRegistered: number;
     mealsInTheDiet: number;
