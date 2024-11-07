@@ -1,12 +1,32 @@
-import { faRightFromBracket, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useAuthContext } from "@contexts/authContext";
+import {
+    faRightFromBracket,
+    faRotate,
+    faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { handleLogout } from "@functions/handleLogout";
 import { button } from "@styles/index";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface ILogoutWindow {
   setOpenWindow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const LogoutWindow = ({ setOpenWindow }: ILogoutWindow) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { setIsAuthenticated } = useAuthContext();
+  const redirect = useNavigate()
+
+  const handleLogoutUser = async () => {
+    setIsLoading(true);
+
+    await handleLogout({ setIsAuthenticated, setIsLoading, setOpenWindow });
+
+    return redirect("/")
+  };
+
   return (
     <div className="fixed left-0 top-0 z-50 h-screen w-screen max-w-full">
       <span className="absolute left-0 top-0 h-screen w-screen bg-black opacity-50"></span>
@@ -34,12 +54,13 @@ export const LogoutWindow = ({ setOpenWindow }: ILogoutWindow) => {
 
         <div className="flex w-full gap-4">
           <button
+            onClick={() => handleLogoutUser()}
             className={button({
               color: "primary",
               className: "flex-1 rounded-lg hover:scale-110 hover:opacity-80",
             })}
           >
-            Yes
+            {isLoading ? <FontAwesomeIcon icon={faRotate} spin /> : "Yes"}
           </button>
           <button
             onClick={() => setOpenWindow(false)}
