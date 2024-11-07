@@ -4,6 +4,7 @@ import { Logo } from "./logo";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "@contexts/authContext";
 import { LogoutButton } from "@components/ui/logoutButton";
+import { WelcomeBanner } from "@components/ui/welcomeBanner";
 
 export const NavBar = () => {
   const { isAuthenticated } = useAuthContext();
@@ -28,7 +29,10 @@ export const NavBar = () => {
           </Link>
         </div>
       ) : (
+        <>
         <LogoutButton />
+        <WelcomeBanner />
+        </>
       )}
     </div>
   );
