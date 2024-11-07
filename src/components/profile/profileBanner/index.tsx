@@ -20,14 +20,14 @@ export const ProfileBanner = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 bg-bg 500 w-min items-center h-fit p-4 rounded-xl border-white border">
-      <FontAwesomeIcon icon={faCircleUser} className="size-64 px-10" />
+    <div className="500 flex h-fit w-full flex-1 flex-wrap items-center justify-center gap-4 rounded-xl border border-white bg-bg p-4 md:w-min md:flex-col md:flex-none">
+      <FontAwesomeIcon icon={faCircleUser} className="size-64 md:px-10" />
       {data ? (
-        <div className="flex flex-col items-center gap-4">
-          <p className="bg-white text-bg px-4 py-2 text-lg w-full rounded-lg flex gap-2">
+        <div className="flex flex-1 flex-col items-center gap-4 w-full">
+          <p className="flex w-full gap-2 rounded-lg bg-white px-4 py-2 text-lg text-bg">
             Name: <span className="text-primary">{data.user.name}</span>
           </p>
-          <p className="bg-white text-bg px-4 py-2 text-lg w-full rounded-lg flex gap-2">
+          <p className="flex w-full gap-2 rounded-lg bg-white px-4 py-2 text-lg text-bg">
             Email: <span className="text-primary">{data.user.email}</span>
           </p>
         </div>

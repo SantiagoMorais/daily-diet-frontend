@@ -9,7 +9,7 @@ export const NavBar = () => {
   const { isAuthenticated } = useAuthContext();
 
   return (
-    <div className="mb-10 flex flex-col items-center justify-between gap-5 md:flex-row">
+    <div className="mb-10 flex flex-col items-center justify-between gap-5 lg:flex-row">
       <Logo />
       <NavbarLinks />
       {!isAuthenticated ? (
