@@ -1,9 +1,9 @@
-import { SignUp } from "@components/signUp";
+import { SignIn } from "@components/signIn";
 import { useAuthContext } from "@contexts/authContext";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const SignUpPage = () => {
+export const SignInPage = () => {
   const { isAuthenticated } = useAuthContext();
   const redirect = useNavigate();
 
@@ -11,5 +11,5 @@ export const SignUpPage = () => {
     if (isAuthenticated) return redirect("/");
   }, [isAuthenticated, redirect]);
 
-  return <SignUp />;
+  return <SignIn />;
 };
