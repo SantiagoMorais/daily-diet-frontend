@@ -13,7 +13,9 @@ export const ProfileButton = (data: IProfileDataReturn) => {
       onMouseEnter={() => setWindowOppened(true)}
       onMouseLeave={() => setWindowOppened(false)}
     >
-      <button className="flex cursor-pointer select-none items-center gap-2 rounded-full border px-4 py-2 text-lg duration-300 hover:shadow-allAround">
+      <button
+        className={`flex cursor-pointer select-none items-center gap-2 rounded-full border px-4 py-2 text-lg duration-300 ${windowOppened && "shadow-allAround"}`}
+      >
         <FontAwesomeIcon icon={faCircleUser} className="text-2xl" />
         <h2 className="text-nowrap">
           Welcome, <span className="text-primary">{data.user.name}</span>
