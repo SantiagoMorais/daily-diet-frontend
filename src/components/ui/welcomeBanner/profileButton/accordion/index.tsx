@@ -8,7 +8,7 @@ import { afterHover } from "@styles/index";
 
 export const Accordion = ({ windowOppened }: { windowOppened: boolean }) => {
   return (
-    <div className="absolute top-0 z-20 w-full cursor-pointer">
+    <div className="absolute top-0 z-20 w-full">
       <div className={`mt-14 overflow-hidden rounded-3xl bg-white p-0 duration-500 ${windowOppened && "p-2"}`}>
         <Collapse isOpened={windowOppened}>
           {welcomeBannerButtons.map((button) => (
