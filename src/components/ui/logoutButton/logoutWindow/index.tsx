@@ -1,8 +1,7 @@
 import { useAuthContext } from "@contexts/authContext";
 import {
-    faRightFromBracket,
-    faRotate,
-    faTimes,
+    faRightFromBracket, faSpinner,
+    faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { handleLogout } from "@functions/handleLogout";
@@ -55,15 +54,17 @@ export const LogoutWindow = ({ setOpenWindow }: ILogoutWindow) => {
         <div className="flex w-full gap-4">
           <button
             onClick={() => handleLogoutUser()}
+            disabled={isLoading}
             className={button({
               color: "primary",
               className: "flex-1 rounded-lg hover:scale-110 hover:opacity-80",
             })}
           >
-            {isLoading ? <FontAwesomeIcon icon={faRotate} spin /> : "Yes"}
+            {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Yes"}
           </button>
           <button
             onClick={() => setOpenWindow(false)}
+            disabled={isLoading}
             className={button({
               color: "secondary",
               className: "flex-1 rounded-lg hover:scale-110 hover:opacity-80",

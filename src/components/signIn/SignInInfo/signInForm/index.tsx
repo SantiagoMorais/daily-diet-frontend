@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { button, errorMessage } from "@styles/index";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IResponseReturn } from "@interfaces/index";
@@ -11,6 +11,7 @@ import { useAuthContext } from "@contexts/authContext";
 
 export const SignInForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { setIsAuthenticated } = useAuthContext();
   const redirect = useNavigate();
 
@@ -23,6 +24,7 @@ export const SignInForm = () => {
   });
 
   const handleLoginUser = async (data: ILogin) => {
+    setIsLoading(true)
     const { email, password } = data;
     const loginUser: IResponseReturn = await handleLogin({
       email,
@@ -36,6 +38,7 @@ export const SignInForm = () => {
 
     setIsAuthenticated(true);
     alert(loginUser.response?.message);
+    setIsLoading(false);
     return redirect("/");
   };
 
@@ -89,13 +92,14 @@ export const SignInForm = () => {
 
       <button
         type="submit"
+        disabled={isLoading}
         className={button({
           color: "secondary",
           format: "full",
           className: "rounded-lg",
         })}
       >
-        Login
+        {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Login"}
       </button>
     </form>
   );

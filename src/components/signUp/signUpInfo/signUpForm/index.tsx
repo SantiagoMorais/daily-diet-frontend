@@ -7,13 +7,18 @@ import {
   registerNewUserSchema,
 } from "@functions/handleRegisterNewUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IResponseReturn } from "@interfaces/index";
 
 export const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const redirect = useNavigate();
   const {
     register,
@@ -24,6 +29,7 @@ export const SignUpForm = () => {
   });
 
   const handleRegisterUser = async (data: IRegisterNewUser) => {
+    setIsLoading(true);
     const { email, name, password, repeatPassword } = data;
     const registerNewUser: IResponseReturn = await handleRegisterNewUser({
       email,
@@ -38,6 +44,7 @@ export const SignUpForm = () => {
     }
 
     alert(registerNewUser.response?.message);
+    setIsLoading(false);
     return redirect("/");
   };
 
@@ -128,13 +135,14 @@ export const SignUpForm = () => {
 
       <button
         type="submit"
+        disabled={isLoading}
         className={button({
           color: "secondary",
           format: "full",
           className: "rounded-lg",
         })}
       >
-        Register
+        {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Register"}
       </button>
     </form>
   );
