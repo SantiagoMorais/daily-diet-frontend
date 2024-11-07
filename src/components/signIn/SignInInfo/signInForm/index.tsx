@@ -7,9 +7,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IResponseReturn } from "@interfaces/index";
 import { handleLogin, ILogin, loginSchema } from "@functions/handleLogin";
+import { useAuthContext } from "@contexts/authContext";
 
 export const SignInForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const { setIsAuthenticated } = useAuthContext();
   const redirect = useNavigate();
 
   const {
@@ -32,6 +34,7 @@ export const SignInForm = () => {
       return;
     }
 
+    setIsAuthenticated(true);
     alert(loginUser.response?.message);
     return redirect("/");
   };
@@ -86,7 +89,11 @@ export const SignInForm = () => {
 
       <button
         type="submit"
-        className={button({ color: "secondary", format: "full", className: "rounded-lg" })}
+        className={button({
+          color: "secondary",
+          format: "full",
+          className: "rounded-lg",
+        })}
       >
         Login
       </button>

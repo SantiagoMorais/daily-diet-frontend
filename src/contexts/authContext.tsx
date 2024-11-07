@@ -1,4 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { env } from "@env/index";
+import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export interface IAuthContext {
   isAuthenticated: boolean;
@@ -13,6 +15,21 @@ export const AuthContext = createContext<IAuthContext>({
 export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
+  useEffect(() => {
+    const checkAuth = async () => {
+      await axios
+        .get(env.VITE_DATABASE_URL + "/auth/status", { withCredentials: true })
+        .then(() => {
+          setIsAuthenticated(true);
+        })
+        .catch(() => {
+          setIsAuthenticated(false);
+        });
+    };
+
+    checkAuth();
+  }, [isAuthenticated]);
+
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
       {children}
@@ -21,7 +38,8 @@ export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
 };
 
 export const useAuthContext = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
-
-  return { isAuthenticated, setIsAuthenticated };
+  const context = useContext(AuthContext);
+  if (!context)
+    throw new Error("useAuth must be used within AuthContextProvider");
+  return context;
 };
