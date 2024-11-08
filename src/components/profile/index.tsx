@@ -15,7 +15,7 @@ export const Profile = () => {
   }, [isAuthenticated]);
 
   return (
-    <div className="flex min-h-full flex-col justify-center gap-10">
+    <div className="flex h-full flex-col justify-center gap-10">
       <NavBar />
       <div className="flex flex-1 flex-wrap flex-col items-center justify-center gap-4 md:flex-row">
         <ProfileBanner />

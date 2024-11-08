@@ -89,7 +89,44 @@ export const socialMediaLinks: ISocialMedia[] = [
   { icon: faWhatsapp, link: whatsAppLink, title: "Whatsapp" },
 ];
 
-export const welcomeBannerButtons: { title: string; link: string; id: string }[] = [
+export const welcomeBannerButtons: {
+  title: string;
+  link: string;
+  id: string;
+}[] = [
   { title: "Register Meals", link: "/meals", id: createId() },
   { title: "Profile", link: "/profile", id: createId() },
+];
+
+export const summaryListItemsDetails: {
+  type: string;
+  description: string;
+  title: string;
+  id: string;
+}[] = [
+  {
+    type: "mealsRegistered",
+    description: "Total number of meals registered by you.",
+    title: "Meals Registered:",
+    id: createId(),
+  },
+  {
+    type: "mealsInTheDiet",
+    description: "Number of meals that were within of your planned diet.",
+    title: "Meals in the Diet:",
+    id: createId(),
+  },
+  {
+    type: "mealsOutTheDiet",
+    description: "Number of meals that were outside of your planned diet.",
+    title: "Meals out the Diet:",
+    id: createId(),
+  },
+  {
+    type: "bestDietSequency",
+    description:
+      "Longest sequence of consecutive meals that were within your diet.",
+    title: "Best Diet Sequency:",
+    id: createId(),
+  },
 ];

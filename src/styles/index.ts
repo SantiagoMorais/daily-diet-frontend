@@ -31,3 +31,7 @@ export const afterHover = tv({
 export const errorMessage = tv({
   base: "text-sm text-primary pt-1",
 });
+
+export const summaryListItem = tv({
+  base: "flex justify-between items-center text-lg"
+})
