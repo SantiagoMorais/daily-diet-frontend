@@ -34,7 +34,7 @@ export const SummaryChart = ({ summary }: ISummary) => {
   }, []);
 
   return (
-    <BarChart data={data} width={chartWidth ? chartWidth : 250} height={250}>
+    <BarChart data={data} width={chartWidth ? chartWidth : 250} height={350}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
       <YAxis />
