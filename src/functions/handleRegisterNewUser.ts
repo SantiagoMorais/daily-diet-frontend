@@ -32,21 +32,11 @@ export const registerNewUserSchema = z
 
 export type IRegisterNewUser = z.infer<typeof registerNewUserSchema>;
 
-export const handleRegisterNewUser = async ({
-  name,
-  email,
-  password,
-  repeatPassword,
-}: IRegisterNewUser) => {
+export const handleRegisterNewUser = async (data: IRegisterNewUser) => {
   let response: IResponse | undefined = undefined;
 
   await axios
-    .post<IRegisterNewUser>(`${env.VITE_DATABASE_URL}/users`, {
-      name,
-      email,
-      password,
-      repeatPassword,
-    })
+    .post<IRegisterNewUser>(`${env.VITE_DATABASE_URL}/users`, data)
     .then((res) => {
       response = {
         message: "User registered successfully.",

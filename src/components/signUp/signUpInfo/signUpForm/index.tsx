@@ -30,13 +30,7 @@ export const SignUpForm = () => {
 
   const handleRegisterUser = async (data: IRegisterNewUser) => {
     setIsLoading(true);
-    const { email, name, password, repeatPassword } = data;
-    const registerNewUser: IResponseReturn = await handleRegisterNewUser({
-      email,
-      name,
-      password,
-      repeatPassword,
-    });
+    const registerNewUser: IResponseReturn = await handleRegisterNewUser(data);
 
     if (registerNewUser.response?.type === "error") {
       alert(registerNewUser.response.message);
