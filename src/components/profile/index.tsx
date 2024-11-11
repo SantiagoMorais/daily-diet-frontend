@@ -17,7 +17,7 @@ export const Profile = () => {
       }
       return redirect("/profile");
     }
-  }, [isAuthenticated]);
+  }, [loading]);
 
   return (
     <div className="flex h-full flex-col justify-center gap-10">

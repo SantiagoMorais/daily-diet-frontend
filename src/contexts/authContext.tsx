@@ -25,7 +25,7 @@ export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
     localStorage.setItem("dailyDietAuthentication", JSON.stringify(value));
   };
 
-  useEffect(() => {
+  useEffect(() => {    
     const checkAuth = async () => {
       try {
         await axios.get(env.VITE_DATABASE_URL + "/auth/status", {
