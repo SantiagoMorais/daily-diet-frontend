@@ -5,11 +5,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 export interface IAuthContext {
   isAuthenticated: boolean;
   setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
+  loading: boolean;
 }
 
 export const AuthContext = createContext<IAuthContext>({
   isAuthenticated: false,
   setIsAuthenticated: () => {},
+  loading: true,
 });
 
 export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
@@ -17,6 +19,7 @@ export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
   const initialAuthState = localAuthData ? JSON.parse(localAuthData) : false;
 
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const updateLocalStorage = (value: boolean) => {
     localStorage.setItem("dailyDietAuthentication", JSON.stringify(value));
@@ -29,12 +32,14 @@ export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
           withCredentials: true,
         });
         setIsAuthenticated(true);
-        updateLocalStorage(true);
+        true;
       } catch {
         setIsAuthenticated(false);
         updateLocalStorage(false);
         if (initialAuthState)
           alert("Your session expired.\nPlease, login again.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -42,7 +47,7 @@ export const AuthContextProvider = ({ children }: React.PropsWithChildren) => {
   }, [isAuthenticated]);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, loading }}>
       {children}
     </AuthContext.Provider>
   );

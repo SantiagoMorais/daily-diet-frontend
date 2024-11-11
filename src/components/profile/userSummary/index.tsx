@@ -3,7 +3,7 @@ import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { handleUserSummary, ISummary } from "@functions/handleUserSummary";
 import { useQuery } from "@tanstack/react-query";
-import { SummaryList } from "./summaryList";
+import { SummaryInfo } from "./summaryInfo";
 
 export const UserSummary = () => {
   const { data, isLoading, error } = useQuery<ISummary | null>({
@@ -13,7 +13,7 @@ export const UserSummary = () => {
   });
 
   return (
-    <div className="flex h-full flex-1 flex-col items-center gap-4 rounded-xl border border-white bg-bg p-4">
+    <div className="flex h-full w-full flex-1 flex-col items-center gap-4 rounded-xl border border-white bg-bg p-4">
       <div className="flex w-full justify-center gap-2 border-b pb-2">
         <FontAwesomeIcon icon={faCircleInfo} className="text-4xl" />
         <h2 className="text-4xl text-primary">Summary</h2>
@@ -23,7 +23,7 @@ export const UserSummary = () => {
       ) : error ? (
         <p>{error.message}</p>
       ) : (
-        data && <SummaryList summary={data.summary} />
+        data && <SummaryInfo summary={data.summary} />
       )}
     </div>
   );
