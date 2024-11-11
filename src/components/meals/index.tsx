@@ -3,6 +3,7 @@ import { NavBar } from "@components/navBar";
 import { useAuthContext } from "@contexts/authContext";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { MealsBanner } from "./mealsBanner";
 
 export const Meals = () => {
   const { isAuthenticated, loading } = useAuthContext();
@@ -20,7 +21,9 @@ export const Meals = () => {
   return (
     <div className="flex h-full flex-col justify-center gap-10">
       <NavBar />
-      <div className="flex flex-1 flex-col flex-wrap items-center justify-center gap-4 md:flex-row"></div>
+      <div className="flex flex-1 flex-col flex-wrap items-center justify-center gap-4 md:flex-row">
+        <MealsBanner />
+      </div>
       <Footer />
     </div>
   );
