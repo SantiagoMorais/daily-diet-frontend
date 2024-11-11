@@ -11,7 +11,7 @@ export const SummaryList = (data: ISummary) => {
   };
 
   return (
-    <ul className="flex w-full flex-col gap-2">
+    <ul className="flex w-full md:w-fit flex-col gap-2">
       {summaryListItemsDetails.map((item) => (
         <li key={item.id} className={summaryListItem()}>
           <p>
