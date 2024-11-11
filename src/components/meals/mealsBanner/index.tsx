@@ -2,7 +2,7 @@ import mealsBanner from "@assets/imgs/mealsBanner.webp";
 
 export const MealsBanner = () => {
   return (
-    <div className="flex h-full w-full flex-col gap-4">
+    <div className="flex h-fit w-full flex-col gap-4">
       <h2 className="w-full border-b pb-3 text-center font-title text-4xl font-semibold">
         Register{" "}
         <span className="rounded-xl bg-white px-2 text-primary">Meals</span>

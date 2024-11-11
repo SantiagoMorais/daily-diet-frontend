@@ -3,8 +3,14 @@ import axios, { AxiosError } from "axios";
 import { z } from "zod";
 
 export const mealDataSchema = z.object({
-  title: z.string().min(2).max(30),
-  description: z.string().min(2).max(100),
+  title: z
+    .string()
+    .min(2, {message: "Title must have at least 2 characteres"})
+    .max(30, { message: "Title must have at most 30 characteres" }),
+  description: z
+    .string()
+    .min(2, {message: "Description must have at least 2 characteres"})
+    .max(100, { message: "Description must have at most 100 characteres" }),
   inTheDiet: z.boolean(),
 });
 
