@@ -33,5 +33,5 @@ export const errorMessage = tv({
 });
 
 export const summaryListItem = tv({
-  base: "flex justify-between items-center text-lg"
+  base: "flex justify-between items-center text-lg gap-2 w-full"
 })

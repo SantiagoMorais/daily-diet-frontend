@@ -102,31 +102,48 @@ export const summaryListItemsDetails: {
   type: string;
   description: string;
   title: string;
+  titleAbreviation: string;
   id: string;
 }[] = [
   {
     type: "mealsRegistered",
     description: "Total number of meals registered by you.",
-    title: "Meals Registered:",
+    title: "(MR) Meals Registered:",
+    titleAbreviation: "MR",
     id: createId(),
   },
   {
     type: "mealsInTheDiet",
     description: "Number of meals that were within of your planned diet.",
-    title: "Meals in the Diet:",
+    title: "(MID) Meals in the Diet:",
+    titleAbreviation: "MID",
     id: createId(),
   },
   {
     type: "mealsOutTheDiet",
     description: "Number of meals that were outside of your planned diet.",
-    title: "Meals out the Diet:",
+    title: "(MOD) Meals out the Diet:",
+    titleAbreviation: "MOD",
     id: createId(),
   },
   {
     type: "bestDietSequency",
     description:
       "Longest sequence of consecutive meals that were within your diet.",
-    title: "Best Diet Sequency:",
+    title: "(BDS) Best Diet Sequency:",
+    titleAbreviation: "BDS",
     id: createId(),
   },
+];
+
+export const chartBreakPoints: {
+  windowInnerWidth: number;
+  screenWidth: number;
+}[] = [
+  { windowInnerWidth: 1200, screenWidth: 700 },
+  { windowInnerWidth: 900, screenWidth: 400 },
+  { windowInnerWidth: 767, screenWidth: 250 },
+  { windowInnerWidth: 560, screenWidth: 400 },
+  { windowInnerWidth: 400, screenWidth: 300 },
+  { windowInnerWidth: 0, screenWidth: 220 },
 ];

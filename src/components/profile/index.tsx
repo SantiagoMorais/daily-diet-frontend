@@ -7,17 +7,22 @@ import { useNavigate } from "react-router-dom";
 import { UserSummary } from "./userSummary";
 
 export const Profile = () => {
-  const { isAuthenticated } = useAuthContext();
+  const { isAuthenticated, loading } = useAuthContext();
   const redirect = useNavigate();
 
   useEffect(() => {
-    if (!isAuthenticated) redirect("/sign-in");
+    if (!loading) {
+      if (!isAuthenticated) {
+        return redirect("/sign-in");
+      }
+      return redirect("/profile");
+    }
   }, [isAuthenticated]);
 
   return (
     <div className="flex h-full flex-col justify-center gap-10">
       <NavBar />
-      <div className="flex flex-1 flex-wrap flex-col items-center justify-center gap-4 md:flex-row">
+      <div className="flex flex-1 flex-col flex-wrap items-center justify-center gap-4 md:flex-row">
         <ProfileBanner />
         <UserSummary />
       </div>
