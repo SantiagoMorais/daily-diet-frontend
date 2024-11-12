@@ -57,7 +57,7 @@ export const RegisterMeal = () => {
     <div className="w-full">
       <form
         onSubmit={handleSubmit(handleRegisterMeal)}
-        className="flex w-full flex-wrap justify-center gap-6"
+        className="flex w-full flex-wrap justify-center gap-x-6 gap-y-3"
       >
         <label
           htmlFor="title"
