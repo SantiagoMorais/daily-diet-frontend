@@ -25,7 +25,7 @@ export const Profile = () => {
   return (
     <div className="flex h-full flex-col justify-center gap-10">
       <NavBar />
-      <div className="flex flex-1 flex-col flex-wrap items-center justify-center gap-4 md:flex-row">
+      <div className="flex flex-1 flex-col items-center justify-center gap-4 md:flex-row">
         <ProfileBanner />
         <UserSummary />
       </div>

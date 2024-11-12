@@ -139,11 +139,12 @@ export const summaryListItemsDetails: {
 export const chartBreakPoints: {
   windowInnerWidth: number;
   screenWidth: number;
+  screenHeight: number
 }[] = [
-  { windowInnerWidth: 1200, screenWidth: 700 },
-  { windowInnerWidth: 900, screenWidth: 400 },
-  { windowInnerWidth: 767, screenWidth: 250 },
-  { windowInnerWidth: 560, screenWidth: 400 },
-  { windowInnerWidth: 400, screenWidth: 300 },
-  { windowInnerWidth: 0, screenWidth: 220 },
+  { windowInnerWidth: 1200, screenWidth: 700, screenHeight: 400 },
+  { windowInnerWidth: 900, screenWidth: 400, screenHeight: 325 },
+  { windowInnerWidth: 767, screenWidth: 250, screenHeight: 225 },
+  { windowInnerWidth: 560, screenWidth: 400, screenHeight: 275 },
+  { windowInnerWidth: 400, screenWidth: 300, screenHeight: 250 },
+  { windowInnerWidth: 0, screenWidth: 220, screenHeight: 200 },
 ];

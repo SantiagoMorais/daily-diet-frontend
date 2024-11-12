@@ -13,6 +13,7 @@ import { chartBreakPoints, summaryListItemsDetails } from "utils/arrays";
 
 export const SummaryChart = ({ summary }: ISummary) => {
   const [chartWidth, setChartWidth] = useState<number | null>(null);
+  const [chartHeight, setChartHeight] = useState<number | null>(null);
   const data = summaryListItemsDetails.map((item) => ({
     name: item.titleAbreviation,
     value: summary[item.type as keyof ISummary["summary"]],
@@ -26,6 +27,7 @@ export const SummaryChart = ({ summary }: ISummary) => {
         ) || chartBreakPoints[chartBreakPoints.length - 1];
 
       setChartWidth(selectedBreakPoint.screenWidth);
+      setChartHeight(selectedBreakPoint.screenHeight)
     };
 
     handleChartWidth();
@@ -34,7 +36,7 @@ export const SummaryChart = ({ summary }: ISummary) => {
   }, []);
 
   return (
-    <BarChart data={data} width={chartWidth ? chartWidth : 250} height={350}>
+    <BarChart data={data} width={chartWidth ? chartWidth : 250} height={chartHeight ? chartHeight : 250}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
       <YAxis />
