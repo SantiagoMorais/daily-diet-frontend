@@ -14,8 +14,7 @@ export const DeleteButton = ({ mealId }: { mealId: string }) => {
     onMutate: () => setIsLoading(true),
     onSuccess: () => {
       setIsLoading(false);
-      queryClient.invalidateQueries({ queryKey: ["listMeals"] });
-      queryClient.invalidateQueries({ queryKey: ["summary"] });
+      queryClient.invalidateQueries({ queryKey: ["listMeals", "summary"] });
     },
     onError: () => {
       setIsLoading(false);
@@ -25,13 +24,13 @@ export const DeleteButton = ({ mealId }: { mealId: string }) => {
 
   return (
     <div
-      className="relative flex-1 overflow-hidden rounded-md bg-primary py-1 text-center text-white duration-300 hover:scale-95 hover:opacity-80 cursor-pointer"
+      className="relative flex-1 cursor-pointer overflow-hidden rounded-md bg-primary py-1 text-center text-white duration-300 hover:scale-95 hover:opacity-80"
       title="Delete meal"
       onClick={() => setClicked(true)}
       onMouseLeave={() => setClicked(false)}
     >
       <button
-        className={`cursor-pointer absolute left-0 top-0 flex h-full w-full origin-right scale-x-0 items-center justify-center gap-2 bg-secondary text-white transition-transform duration-500 ${clicked && "origin-left scale-x-100"}`}
+        className={`absolute left-0 top-0 flex h-full w-full origin-right scale-x-0 cursor-pointer items-center justify-center gap-2 bg-secondary text-white transition-transform duration-500 ${clicked && "origin-left scale-x-100"}`}
         onClick={() => mutate(mealId)}
         disabled={isLoading}
       >

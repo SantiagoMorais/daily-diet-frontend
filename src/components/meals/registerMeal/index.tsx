@@ -38,8 +38,7 @@ export const RegisterMeal = () => {
     onMutate: () => setIsLoading(true),
     onSuccess: () => {
       setIsLoading(false);
-      queryClient.invalidateQueries({ queryKey: ["listMeals"] });
-      queryClient.invalidateQueries({ queryKey: ["summary"] });
+      queryClient.invalidateQueries({ queryKey: ["listMeals", "summary"] });
     },
     onError: () => {
       setIsLoading(false);

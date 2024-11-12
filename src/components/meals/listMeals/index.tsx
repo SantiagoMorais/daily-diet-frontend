@@ -3,7 +3,7 @@ import { handleListMeals, IMealsList } from "@functions/handleListMeals";
 import { useQuery } from "@tanstack/react-query";
 import { MealCard } from "./mealCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
+import { faFolderOpen, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export const ListMeals = () => {
   const { data, error, isLoading } = useQuery<IMealsList | null>({
@@ -17,7 +17,10 @@ export const ListMeals = () => {
       {isLoading ? (
         <LoadingButton />
       ) : error ? (
-        <p>{error.message}</p>
+        <p className="flex items-center justify-center gap-2 text-lg">
+          <FontAwesomeIcon icon={faTimes} className="text-xl text-primary" />
+          An error occurred. Please try again later
+        </p>
       ) : (
         <>
           {data && data.meals.length > 0 ? (
@@ -29,7 +32,10 @@ export const ListMeals = () => {
           ) : (
             <div className="flex flex-col items-center gap-2">
               <p className="flex items-center gap-2 text-2xl">
-                <FontAwesomeIcon icon={faFolderOpen} className="text-primary bg-white p-2 rounded-lg" />
+                <FontAwesomeIcon
+                  icon={faFolderOpen}
+                  className="rounded-lg bg-white p-2 text-primary"
+                />
                 Empty list
                 <br />
               </p>

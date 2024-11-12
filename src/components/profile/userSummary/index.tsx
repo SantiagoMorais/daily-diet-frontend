@@ -1,5 +1,5 @@
 import { LoadingButton } from "@components/ui/loadingButton";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { handleUserSummary, ISummary } from "@functions/handleUserSummary";
 import { useQuery } from "@tanstack/react-query";
@@ -21,7 +21,10 @@ export const UserSummary = () => {
       {isLoading ? (
         <LoadingButton />
       ) : error ? (
-        <p>{error.message}</p>
+        <p className="flex items-center justify-center gap-2 text-lg">
+          <FontAwesomeIcon icon={faTimes} className="text-xl text-primary" />
+          An error occurred. Please try again later
+        </p>
       ) : (
         data && <SummaryInfo summary={data.summary} />
       )}
