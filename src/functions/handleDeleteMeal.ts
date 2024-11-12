@@ -3,5 +3,5 @@ import axios from "axios";
 
 export const handleDeleteMeal = async (mealId: string): Promise<null> => {
   return await axios
-    .delete(env.VITE_DATABASE_URL + `/meals/${mealId}`)
+    .delete(env.VITE_DATABASE_URL + `/meals/${mealId}`, {withCredentials: true})
 };

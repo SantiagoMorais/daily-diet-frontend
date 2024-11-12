@@ -1,6 +1,7 @@
 import { faPenToSquare, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IMeal } from "@functions/handleListMeals";
+import { DeleteButton } from "./deleteButton";
 
 export const MealCard = ({ meal }: { meal: IMeal }) => {
   return (
@@ -39,12 +40,7 @@ export const MealCard = ({ meal }: { meal: IMeal }) => {
         >
           <FontAwesomeIcon icon={faPenToSquare} />
         </button>
-        <button
-          className="flex-1 rounded-md bg-primary py-1 text-center text-white duration-300 hover:scale-105 hover:opacity-80"
-          title="Delete meal"
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
+        <DeleteButton mealId={meal.meal_id}/>
       </div>
     </div>
   );

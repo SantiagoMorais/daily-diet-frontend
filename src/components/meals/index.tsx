@@ -6,14 +6,17 @@ import { useNavigate } from "react-router-dom";
 import { MealsBanner } from "./mealsBanner";
 import { RegisterMeal } from "./registerMeal";
 import { ListMeals } from "./listMeals";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const Meals = () => {
   const { isAuthenticated, loading } = useAuthContext();
   const redirect = useNavigate();
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     if (!loading) {
       if (!isAuthenticated) {
+        queryClient.invalidateQueries({ queryKey: ["listMeals"] });
         return redirect("/sign-in");
       }
       return redirect("/meals");

@@ -19,7 +19,7 @@ const mealDataSchema = z.object({
     .max(100, { message: "Description must have at most 100 characteres" }),
   inTheDiet: z.string({ message: "Please select at least one option." }),
 });
-g
+
 type TMealDataSchema = z.infer<typeof mealDataSchema>;
 
 export const RegisterMeal = () => {
