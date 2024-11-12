@@ -20,7 +20,7 @@ const mealDataSchema = z.object({
   inTheDiet: z.string({ message: "Please select at least one option." }),
 });
 
-type TMealDataSchema = z.infer<typeof mealDataSchema>;
+export type TMealDataSchema = z.infer<typeof mealDataSchema>;
 
 export const RegisterMeal = () => {
   const queryClient = useQueryClient();
@@ -95,7 +95,6 @@ export const RegisterMeal = () => {
                 type="radio"
                 id="yes"
                 value="true"
-                placeholder="In The Diet"
                 className="rounded-lg border bg-bg px-2 py-1 text-white"
                 {...register("inTheDiet")}
               />
@@ -110,7 +109,6 @@ export const RegisterMeal = () => {
                 type="radio"
                 id="no"
                 value="false"
-                placeholder="In The Diet"
                 className="rounded-lg border bg-bg px-2 py-1 text-white"
                 {...register("inTheDiet")}
               />

@@ -13,8 +13,8 @@ export const DeleteButton = ({ mealId }: { mealId: string }) => {
     mutationKey: ["deleteMeal"],
     onMutate: () => setIsLoading(true),
     onSuccess: () => {
-      setIsLoading(false),
-        queryClient.invalidateQueries({ queryKey: ["listMeals"] });
+      setIsLoading(false);
+      queryClient.invalidateQueries({ queryKey: ["listMeals"] });
     },
     onError: () => {
       setIsLoading(false);
@@ -23,7 +23,7 @@ export const DeleteButton = ({ mealId }: { mealId: string }) => {
   });
 
   return (
-    <button
+    <div
       className="relative flex-1 overflow-hidden rounded-md bg-primary py-1 text-center text-white duration-300 hover:scale-105 hover:opacity-80"
       title="Delete meal"
       onClick={() => setClicked(true)}
@@ -45,6 +45,6 @@ export const DeleteButton = ({ mealId }: { mealId: string }) => {
       )}
 
       <FontAwesomeIcon icon={faTimes} />
-    </button>
+    </div>
   );
 };

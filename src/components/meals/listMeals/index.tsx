@@ -21,7 +21,7 @@ export const ListMeals = () => {
           {data && data.meals.length > 0 ? (
             <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
               {data.meals.map((meal) => (
-                <MealCard meal={meal} />
+                <MealCard meal={meal} key={meal.meal_id} />
               ))}
             </div>
           ) : (

@@ -6,12 +6,13 @@ export const button = tv({
     color: {
       primary:
         "text-bg bg-gradient-to-br from-white to-zinc-400 hover:text-primary ",
-      secondary: "text-white bg-gradient-to-br from-primary to-secondary hover:text-bg",
+      secondary:
+        "text-white bg-gradient-to-br from-primary to-secondary hover:text-bg",
     },
     format: {
       rounded: "rounded-full",
       full: "w-full",
-      common: "rounded-lg"
+      common: "rounded-lg",
     },
     hoverEffects: {
       scale: "hover:scale-110",
@@ -33,5 +34,15 @@ export const errorMessage = tv({
 });
 
 export const summaryListItem = tv({
-  base: "flex justify-between items-center text-lg gap-2 w-full md:gap-4"
-})
+  base: "flex justify-between items-center text-lg gap-2 w-full md:gap-4",
+});
+
+export const title = tv({
+  base: "text-lg font-semibold ",
+  variants: {
+    afterEffect: {
+      borderBottom:
+        "relative pb-px after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-l after:bg-gradient-to-r after:from-primary after:to-transparent",
+    },
+  },
+});

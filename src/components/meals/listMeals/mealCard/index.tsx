@@ -1,7 +1,7 @@
-import { faPenToSquare, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IMeal } from "@functions/handleListMeals";
 import { DeleteButton } from "./deleteButton";
+import { EditButton } from "./editButton";
+import { title } from "@styles/index";
 
 export const MealCard = ({ meal }: { meal: IMeal }) => {
   return (
@@ -10,7 +10,7 @@ export const MealCard = ({ meal }: { meal: IMeal }) => {
       className="flex w-full flex-col gap-2 rounded-xl border bg-bg px-4 py-2 md:flex-wrap"
     >
       <div className="flex flex-col gap-1 text-sm text-primary md:flex-1">
-        <h3 className="relative pb-px text-lg font-semibold after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-l after:bg-gradient-to-r after:from-primary after:to-transparent">
+        <h3 className={title({ afterEffect: "borderBottom" })}>
           Title: <span className="text-white">{meal.title}</span>
         </h3>
         <p>
@@ -34,13 +34,8 @@ export const MealCard = ({ meal }: { meal: IMeal }) => {
       </div>
 
       <div className="flex w-full justify-between gap-2">
-        <button
-          className="flex-1 rounded-md bg-white py-1 text-center text-bg duration-300 hover:scale-105 hover:opacity-80"
-          title="Edit meal"
-        >
-          <FontAwesomeIcon icon={faPenToSquare} />
-        </button>
-        <DeleteButton mealId={meal.meal_id}/>
+        <EditButton mealData={meal} />
+        <DeleteButton mealId={meal.meal_id} />
       </div>
     </div>
   );

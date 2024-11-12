@@ -11,13 +11,13 @@ const editMealSchema = z.object({
   }),
 });
 
-type TEditMeal = z.infer<typeof editMealSchema>;
+export type TEditMeal = z.infer<typeof editMealSchema>;
 
 export const handleEditMeal = async ({
   mealId,
   data,
 }: TEditMeal): Promise<TEditMeal> => {
-  return await axios.post(env.VITE_DATABASE_URL + `/meal/${mealId}`, data, {
+  return await axios.put(env.VITE_DATABASE_URL + `/meal/${mealId}`, data, {
     withCredentials: true,
   });
 };
