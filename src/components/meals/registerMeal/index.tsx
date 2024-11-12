@@ -39,6 +39,7 @@ export const RegisterMeal = () => {
     onSuccess: () => {
       setIsLoading(false);
       queryClient.invalidateQueries({ queryKey: ["listMeals"] });
+      queryClient.invalidateQueries({ queryKey: ["summary"] });
     },
     onError: () => {
       setIsLoading(false);

@@ -10,7 +10,7 @@ export const EditButton = ({ mealData }: { mealData: IMeal }) => {
   return (
     <>
       <button
-        className="flex-1 rounded-md bg-white py-1 text-center text-bg duration-300 hover:scale-105 hover:opacity-80"
+        className="flex-1 rounded-md bg-white py-1 text-center text-bg duration-300 hover:scale-95 hover:opacity-80"
         title="Edit meal"
         onClick={() => setOpenWindow(true)}
       >

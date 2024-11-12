@@ -2,6 +2,8 @@ import { LoadingButton } from "@components/ui/loadingButton";
 import { handleListMeals, IMealsList } from "@functions/handleListMeals";
 import { useQuery } from "@tanstack/react-query";
 import { MealCard } from "./mealCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
 
 export const ListMeals = () => {
   const { data, error, isLoading } = useQuery<IMealsList | null>({
@@ -25,7 +27,15 @@ export const ListMeals = () => {
               ))}
             </div>
           ) : (
-            <p>Empty list</p>
+            <div className="flex flex-col items-center gap-2">
+              <p className="flex items-center gap-2 text-2xl">
+                <FontAwesomeIcon icon={faFolderOpen} className="text-primary bg-white p-2 rounded-lg" />
+                Empty list
+                <br />
+              </p>
+
+              <p className="text-base">Start recording your meals now!</p>
+            </div>
           )}
         </>
       )}

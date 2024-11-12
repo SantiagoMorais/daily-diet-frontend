@@ -16,9 +16,9 @@ export const Meals = () => {
   useEffect(() => {
     if (!loading) {
       if (!isAuthenticated) {
-        queryClient.invalidateQueries({ queryKey: ["listMeals"] });
         return redirect("/sign-in");
       }
+      queryClient.invalidateQueries({ queryKey: ["listMeals"] });
       return redirect("/meals");
     }
   }, [loading]);
