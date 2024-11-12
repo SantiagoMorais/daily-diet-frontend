@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { MealsBanner } from "./mealsBanner";
 import { RegisterMeal } from "./registerMeal";
+import { ListMeals } from "./listMeals";
 
 export const Meals = () => {
   const { isAuthenticated, loading } = useAuthContext();
@@ -25,6 +26,7 @@ export const Meals = () => {
       <div className="flex h-full flex-1 flex-col flex-wrap items-center gap-4">
         <MealsBanner />
         <RegisterMeal />
+        <ListMeals />
       </div>
       <Footer />
     </div>

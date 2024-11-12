@@ -1,5 +1,5 @@
 import { env } from "@env/index";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 export interface IMeal {
   title: string;
@@ -10,13 +10,19 @@ export interface IMeal {
   meal_id: string;
 }
 
-export const handleListMeals = async () => {
-  await axios
-    .get<IMeal[]>(env.VITE_DATABASE_URL + "/meals", { withCredentials: true })
+export interface IMealsList {
+  meals: IMeal[];
+}
+
+export const handleListMeals = async (): Promise<IMealsList | null> => {
+  return await axios
+    .get<IMealsList>(env.VITE_DATABASE_URL + "/meals", {
+      withCredentials: true,
+    })
     .then((res) => {
       return res.data;
     })
-    .catch((err: AxiosError) => {
-      return err.message;
+    .catch(() => {
+      return null
     });
 };

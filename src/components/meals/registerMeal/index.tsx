@@ -6,7 +6,7 @@ import {
 } from "@functions/handleRegisterNewMeal";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { button, errorMessage } from "@styles/index";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -24,18 +24,22 @@ export const mealDataSchema = z.object({
 });
 
 export const RegisterMeal = () => {
+  const queryClient = useQueryClient();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const {
     formState: { errors },
     register,
     handleSubmit,
+    reset,
   } = useForm<IMealData>({ resolver: zodResolver(mealDataSchema) });
 
   const { mutate } = useMutation({
     mutationFn: handleRegisterNewMeal,
+    mutationKey: ["registerMeal"],
     onMutate: () => setIsLoading(true),
     onSuccess: () => {
       setIsLoading(false);
+      queryClient.invalidateQueries({ queryKey: ["listMeals"] });
     },
     onError: () => {
       setIsLoading(false);
@@ -46,6 +50,7 @@ export const RegisterMeal = () => {
     const updatedData = { ...data, inTheDiet: Boolean(data.inTheDiet) };
 
     mutate(updatedData);
+    reset();
   };
 
   return (
