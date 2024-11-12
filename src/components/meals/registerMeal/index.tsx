@@ -148,6 +148,7 @@ export const RegisterMeal = () => {
             color: "secondary",
             format: "rounded",
             hoverEffects: "scale",
+            className: "mt-6"
           })}
         >
           {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Register"}

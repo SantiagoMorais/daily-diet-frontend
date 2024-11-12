@@ -23,7 +23,7 @@ export const Meals = () => {
   return (
     <div className="flex h-full flex-col justify-center gap-10">
       <NavBar />
-      <div className="flex h-full flex-1 flex-col flex-wrap items-center gap-4">
+      <div className="flex h-full flex-1 flex-col flex-wrap items-center gap-10">
         <MealsBanner />
         <RegisterMeal />
         <ListMeals />

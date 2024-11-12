@@ -23,6 +23,6 @@ export const handleListMeals = async (): Promise<IMealsList | null> => {
       return res.data;
     })
     .catch(() => {
-      return null
+      return null;
     });
 };
