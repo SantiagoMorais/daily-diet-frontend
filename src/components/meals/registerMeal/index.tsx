@@ -1,9 +1,6 @@
 import { faCheck, faSpinner, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  handleRegisterNewMeal,
-  IMealData,
-} from "@functions/handleRegisterNewMeal";
+import { handleRegisterNewMeal } from "@functions/handleRegisterNewMeal";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { button, errorMessage } from "@styles/index";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -11,7 +8,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-export const mealDataSchema = z.object({
+const mealDataSchema = z.object({
   title: z
     .string()
     .min(2, { message: "Title must have at least 2 characteres" })
@@ -20,8 +17,10 @@ export const mealDataSchema = z.object({
     .string()
     .min(2, { message: "Description must have at least 2 characteres" })
     .max(100, { message: "Description must have at most 100 characteres" }),
-  inTheDiet: z.string(),
+  inTheDiet: z.string({ message: "Please select at least one option." }),
 });
+
+type TMealDataSchema = z.infer<typeof mealDataSchema>;
 
 export const RegisterMeal = () => {
   const queryClient = useQueryClient();
@@ -31,7 +30,7 @@ export const RegisterMeal = () => {
     register,
     handleSubmit,
     reset,
-  } = useForm<IMealData>({ resolver: zodResolver(mealDataSchema) });
+  } = useForm<TMealDataSchema>({ resolver: zodResolver(mealDataSchema) });
 
   const { mutate } = useMutation({
     mutationFn: handleRegisterNewMeal,
@@ -46,8 +45,11 @@ export const RegisterMeal = () => {
     },
   });
 
-  const handleRegisterMeal = (data: IMealData) => {
-    const updatedData = { ...data, inTheDiet: Boolean(data.inTheDiet) };
+  const handleRegisterMeal = (data: TMealDataSchema) => {
+    const updatedData = {
+      ...data,
+      inTheDiet: data.inTheDiet === "true",
+    };
 
     mutate(updatedData);
     reset();
@@ -90,7 +92,6 @@ export const RegisterMeal = () => {
             >
               Yes! <FontAwesomeIcon icon={faCheck} className="text-primary" />
               <input
-                checked
                 type="radio"
                 id="yes"
                 value="true"
@@ -148,7 +149,7 @@ export const RegisterMeal = () => {
             color: "secondary",
             format: "rounded",
             hoverEffects: "scale",
-            className: "mt-6"
+            className: "mt-6",
           })}
         >
           {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Register"}
