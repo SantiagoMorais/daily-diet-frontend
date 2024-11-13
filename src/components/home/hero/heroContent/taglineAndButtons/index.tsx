@@ -26,15 +26,16 @@ export const TaglineAndButtons = () => {
         >
           {isAuthenticated ? "Register meals" : "Register now"}
         </button>
-        <button
+        <a
           className={button({
             color: "primary",
             format: "rounded",
             className: "px-12",
           })}
+          href="#footer"
         >
           About us
-        </button>
+        </a>
       </div>
     </>
   );
