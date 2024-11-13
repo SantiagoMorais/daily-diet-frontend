@@ -14,7 +14,8 @@ export const DeleteButton = ({ mealId }: { mealId: string }) => {
     onMutate: () => setIsLoading(true),
     onSuccess: () => {
       setIsLoading(false);
-      queryClient.invalidateQueries({ queryKey: ["listMeals", "summary"] });
+      queryClient.invalidateQueries({ queryKey: ["listMeals"] });
+      queryClient.invalidateQueries({ queryKey: ["summary"] });
     },
     onError: () => {
       setIsLoading(false);
