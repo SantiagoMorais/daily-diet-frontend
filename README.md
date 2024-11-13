@@ -61,7 +61,11 @@
 
 ## Imagens
 
+**Funcionalidade**
+![desktop preview](src/assets/screenShots/functionality.gif)
 
+**Responsividade**
+![desktop preview](src/assets/screenShots/desktop-view.gif)
 
 ## Funcionalidades
 
