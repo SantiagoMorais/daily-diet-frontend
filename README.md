@@ -29,16 +29,12 @@
 
 - [Recharts](https://recharts.org/en-US): Biblioteca que constroi gráficos como componentes React.
 
-- [FontAwesome](https://fontawesome.com): Biblioteca de ícones.
-
 - [Dayjs](https://www.npmjs.com/package/dayjs): Biblioteca Javascript minimalista que manipula, valida, converte e mostra datas e tempos de forma simplificada.
 
 - [React-Collapse](https://www.npmjs.com/package/react-collapse): Wrapper de componente para animação de acordeão para elementos com altura variável (e dinâmica).
 
 - [react-router-dom](https://reactrouter.com/en/main): Biblioteca que lida com rotas em aplicações web, mantendo a URL e a interface do usuário síncronas, evitando recarregamento de página.
-
-- [TanStack Query](https://tanstack.com/query/latest): Gerencia e sincroniza dados remotos em aplicações React. Facilita a busca, cache e atualização de dados. Ideal para otimizar requisições assíncronas. Trabalha em conjunto com bibliotecas focadas em requisições HTTP como axios ou fetch de dados.
-
+  
 ## Dependências de Desenvolvimento
 
 - [ESLint](https://eslint.org/): Ferramenta para análise de código, responsável por identificar erros e inconsistências, como variáveis não utilizadas ou não declaradas.
